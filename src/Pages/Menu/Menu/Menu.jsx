@@ -8,7 +8,7 @@ import pizzaImage from '../../../assets/menu/pizza-bg.jpg'
 import SectionTitle from '../../../components/SectionTitle/SectionTitle';
 import useMenu from '../../../Hooks/useMenu';
 import MenuCategory from '../MenuCategory/MenuCategory';
-import Button from '../../Shared/Button/Button';
+// import Button from '../../Shared/Button/Button';
 const Menu = () => {
 const [menu] = useMenu()
     const dessert = menu.filter((item) => item.category === "dessert");
@@ -32,15 +32,15 @@ const [menu] = useMenu()
            <MenuCategory
            items={offered}
            ></MenuCategory>
-           <Button/>
+           {/* <Button/> */}
            {/* dessert menu items*/}
            <MenuCategory
            items={dessert}
-           title={'Dessert'}
+           title={'dessert'}
            titleDiscrip={`Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.`}
            coverImg={DessertImage}
            ></MenuCategory>
-             <Button/>
+             {/* <Button/> */}
 {/* pizza  */}
            <MenuCategory
            items={pizza}
@@ -48,7 +48,7 @@ const [menu] = useMenu()
            titleDiscrip={`Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.`}
            coverImg={pizzaImage}
            ></MenuCategory>
-           <Button/>
+           {/* <Button/> */}
 
            {/* salads */}
            <MenuCategory
@@ -57,7 +57,7 @@ const [menu] = useMenu()
            titleDiscrip={`Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.`}
            coverImg={saladImage}
            ></MenuCategory>
-           <Button/>
+           {/* <Button/> */}
            {/* soups */}
            <MenuCategory
            items={soup}
@@ -65,7 +65,7 @@ const [menu] = useMenu()
            titleDiscrip={`Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.`}
            coverImg={soupImage}
            ></MenuCategory>
-           <Button/>
+           {/* <Button/> */}
         </div>
     );
 };

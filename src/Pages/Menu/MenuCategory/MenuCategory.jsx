@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { Link } from "react-router-dom";
 import Cover from "../../Shared/Cover/Cover";
 import MenuItem from "../../Shared/MenuItem/MenuItem";
 
@@ -10,6 +11,15 @@ const MenuCategory = ({ items, titleDiscrip, title, coverImg }) => {
         {items.map((item) => (
           <MenuItem key={item._id} item={item}></MenuItem>
         ))}
+      </div>
+      <div className=" text-center mt-10">
+    <Link to={`/order/${title}`}>
+    <button
+          className="uppercase text-4xl btn btn-outline border-0 border-b-4"
+        >
+          order your favorite food
+        </button>
+    </Link>
       </div>
     </div>
   );
