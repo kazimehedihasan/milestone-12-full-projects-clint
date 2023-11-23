@@ -1,15 +1,20 @@
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { useEffect } from "react";
 import {
   loadCaptchaEnginge,
   LoadCanvasTemplate,
-  LoadCanvasTemplateNoReload,
   validateCaptcha,
 } from "react-simple-captcha";
+import { AuthContext } from "../../provider/AuthProvider";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const captchaRef = useRef(null);
   const [disabled, setDisabled] = useState(true);
+
+  // LOGIN
+  const { login } = useContext(AuthContext);
+
   const handleValidate = () => {
     const user_captcha_value = captchaRef.current.value;
     console.log(user_captcha_value);
@@ -30,16 +35,22 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(password, email);
+      // LOGIN
+    login(email, password).then((result) => {
+      const user = result.user;
+      console.log(user);
+    });
   };
 
   return (
     <div>
       <div className="hero min-h-screen bg-base-300">
-        <div className="hero-content  flex ">
-          <div className="text-center md:w-1/2 lg:text-left ">
-            <h1 className="text-5xl font-bold">Login now!</h1>
+        <div className="hero-content flex-col lg:flex-row-reverse">
+          <div className="text-center lg:text-right ">
+            <h1 className="text-5xl font-bold text-center">Login now!</h1>
+            <img src="https://i.ibb.co/xhc97NZ/authentication1.png" alt="" />
           </div>
-          <div className="card md:w-1/2 max-w-sm shadow-2xl ">
+          <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100 ">
             <form onSubmit={handleLogin} className="card-body">
               <div className="form-control">
                 <label className="label">
@@ -82,7 +93,7 @@ const Login = () => {
                   name="type"
                   className="input input-bordered"
                   required
-                //   onChange={() => handleValidate(captchaRef)}
+                  //   onChange={() => handleValidate(captchaRef)}
                 />
 
                 <button onClick={handleValidate}>validate</button>
@@ -97,6 +108,7 @@ const Login = () => {
                 />
               </div>
             </form>
+            <p><small>New Here ? <Link to='/register'>Create an account</Link></small></p>
           </div>
         </div>
       </div>
