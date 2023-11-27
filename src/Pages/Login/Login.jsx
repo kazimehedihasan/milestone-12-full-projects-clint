@@ -108,7 +108,7 @@ const Login = () => {
                 />
               </div>
             </form>
-            <p><small>New Here ? <Link to='/register'>Create an account</Link></small></p>
+            <p  className="text-center "><small>New Here ? <Link to='/register'>Create an account</Link></small></p>
           </div>
         </div>
       </div>
